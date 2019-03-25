@@ -20,13 +20,13 @@ class CustomDrawer extends StatelessWidget {
                 )
               ),
             ),
-            ListTile(
-              title: Text("Login"),
-              trailing: Icon(Icons.account_box),
-              onTap: () {
-                Navigator.pushNamed(context, "/login");
-              },
-            ),
+//            ListTile(
+//              title: Text("Login"),
+//              trailing: Icon(Icons.account_box),
+//              onTap: () {
+//                Navigator.pushNamed(context, "/login");
+//              },
+//            ),
             ListTile(
               title: Text("Home"),
               trailing: Icon(Icons.home),

@@ -141,7 +141,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
             Text(
               "ACTIVITIES",
               style: TextStyle(
-                fontSize: 12.0,
+                fontSize: 14.0,
                 letterSpacing: 3.5,
                 fontWeight: FontWeight.bold
               ),

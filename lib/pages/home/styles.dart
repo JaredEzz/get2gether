@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-DecorationImage image1 = DecorationImage(
+DecorationImage image6 = DecorationImage(
     image: new NetworkImage("https://cdn.topgolf.com/assets/galleries/11551/2131_hitting-bays-night-topgolf-centennial-01.jpg"),
     fit: BoxFit.cover
 );
@@ -29,7 +29,7 @@ DecorationImage image5 = DecorationImage(
 );
 
 //Night Life Comedy
-DecorationImage image6 = DecorationImage(
+DecorationImage image1 = DecorationImage(
     image: new NetworkImage("https://cbssanfran.files.wordpress.com/2012/04/nightlife-music-comedy-rooster-t-feathers-comedy-club.jpg"),
     fit: BoxFit.cover
 );
