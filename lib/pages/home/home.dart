@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get2gether/model/database.dart';
+import 'package:get2gether/pages/home/activecard.dart';
+import 'package:get2gether/pages/home/dummyCard.dart';
 import 'package:get2gether/pages/widget.dart';
 
 class HomePage extends StatefulWidget{
@@ -169,29 +171,27 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
               alignment: AlignmentDirectional.center,
               children: data.map((item) {
                 if (data.indexOf(item) == dataLength - 1) {
-                  return null;
-//                  return cardDemo(
-//                      item,
-//                      bottom.value,
-//                      right.value,
-//                      0.0,
-//                      backCardWidth + 10,
-//                      rotate.value,
-//                      rotate.value < -10 ? 0.1 : 0.0,
-//                      context,
-//                      dismissImg,
-//                      flag,
-//                      addImg,
-//                      swipeRight,
-//                      swipeLeft
-//                  );
+                  return cardDemo(
+                      item,
+                      bottom.value,
+                      right.value,
+                      0.0,
+                      backCardWidth + 10,
+                      rotate.value,
+                      rotate.value < -10 ? 0.1 : 0.0,
+                      context,
+                      dismissImg,
+                      flag,
+                      addImg,
+                      swipeRight,
+                      swipeLeft
+                  );
                 } else {
                   backCardPosition = backCardPosition - 10;
                   backCardWidth = backCardWidth + 10;
 
-                  return null;
-//                  return cardDemoDummy(item, backCardPosition, 0.0, 0.0,
-//                      backCardWidth, 0.0, 0.0, context);
+                  return cardDemoDummy(item, backCardPosition, 0.0, 0.0,
+                      backCardWidth, 0.0, 0.0, context);
                 }
               }).toList())
             : new Text("No Events Left",
