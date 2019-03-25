@@ -10,11 +10,14 @@ class Activity{
   Rating _rating;
   List<Category> _categories;
 
+  Activity.blank();
 
-
+  Activity(this._mainDecorationImage,this._images,this._name,this._description, this._rating, this._categories);
 
 }
 
 class ScheduledActivity extends Activity {
+
+  ScheduledActivity(this._dateTime) : super.blank();
   DateTime _dateTime;
 }
