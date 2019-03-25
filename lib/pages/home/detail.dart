@@ -18,7 +18,7 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
   Animation<double> height;
   DecorationImage type;
   _DetailPageState({this.type});
-  List imagesData = Database().allImages;
+  List imagesData = Database().activityImages;
   double _appBarHeight = 256.0;
   AppBarBehavior _appBarBehavior = AppBarBehavior.pinned;
 

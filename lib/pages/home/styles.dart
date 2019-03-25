@@ -33,3 +33,6 @@ DecorationImage image1 = DecorationImage(
     image: new NetworkImage("https://cbssanfran.files.wordpress.com/2012/04/nightlife-music-comedy-rooster-t-feathers-comedy-club.jpg"),
     fit: BoxFit.cover
 );
+
+//color palette
+//https://color.adobe.com/create/color-wheel/?base=0&rule=Compound&selected=3&name=My%20Color%20Theme&mode=rgb&rgbvalues=0.19696969696969693,0.65,0.5810606060604941,0.09136363636363637,0.3119892864574182,0.45000000000000007,0.17575757575757575,0.22142997480529567,0.25,0.88,0.5437783816424159,0.48666666666666664,0.45000000000000007,0.09136363636363637,0.09214328063254865&swatchOrder=0,1,2,3,4

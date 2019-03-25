@@ -19,6 +19,8 @@ class Activity{
     _description = "";
     _images = [];
     _rating = Rating();
+    _categories = [];
+    _location = Location.random();
   }
 
   Activity(this._mainDecorationImage,this._images,this._name,this._description, this._rating, this._categories);

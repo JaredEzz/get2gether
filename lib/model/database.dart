@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get2gether/model/activity.dart';
 import 'package:get2gether/pages/home/styles.dart';
 
@@ -11,6 +12,7 @@ class Database {
   }
 
   List _connections = ["Friend1","Friend2"];
+  List<DecorationImage> _result;
 
   List _activities = [
   new Activity.limited2(image6, "Top Golf"),
@@ -21,13 +23,7 @@ class Database {
   new Activity.limited2(image1, "Comedy Club")
   ];
 
-  List get allImages {
-    List result;
-    for (int i = 0; i < activities.length; i++) {
-      result.add(activities[i].mainDecorationImage);
-    }
-    return result;
-  }
+  List _activityImages = [image6,image5,image4,image3,image2,image1];
 
   Activity specificActivity(int index){
     return activities[index];
@@ -44,5 +40,12 @@ class Database {
   set connections(List value) {
     _connections = value;
   }
+
+  List get activityImages => _activityImages;
+
+  set activityImages(List value) {
+    _activityImages = value;
+  }
+
 
 }

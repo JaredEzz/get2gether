@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
   Animation<double> width;
   Animation<Color> fadeScreenAnimation;
   int flag = 0;
-  List data = Database().allImages;
+  List data = Database().activityImages;
   List selectedData = [];
 
   void initState() {
