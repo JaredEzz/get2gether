@@ -14,3 +14,7 @@ class Activity{
 
 
 }
+
+class ScheduledActivity extends Activity {
+  DateTime _dateTime;
+}
