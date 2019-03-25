@@ -14,7 +14,7 @@ enum AppBarBehavior { normal, pinned, floating, snapping }
 class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
   AnimationController _containerController;
   Animation<double> width;
-  Animation<double> heigth;
+  Animation<double> height;
   DecorationImage type;
   _DetailPageState({this.type});
   List data = Database().events;
@@ -34,7 +34,7 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
         curve: Curves.ease,
       ),
     );
-    heigth = new Tween<double>(
+    height = new Tween<double>(
       begin: 400.0,
       end: 400.0,
     ).animate(
@@ -43,9 +43,9 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
         curve: Curves.ease,
       ),
     );
-    heigth.addListener(() {
+    height.addListener(() {
       setState(() {
-        if (heigth.isCompleted) {}
+        if (height.isCompleted) {}
       });
     });
     _containerController.forward();
@@ -70,7 +70,7 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
       ),
       child: new Container(
         width: width.value,
-        height: heigth.value,
+        height: height.value,
         color: const Color.fromRGBO(2, 66, 107, 1.0),
         child: new Hero(
           tag: "img",
@@ -79,7 +79,7 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
             child: new Container(
               alignment: Alignment.center,
               width: width.value,
-              height: heigth.value,
+              height: height.value,
               decoration: new BoxDecoration(
                 color: Colors.white,
                 borderRadius: new BorderRadius.circular(10.0),
@@ -99,7 +99,7 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                           },
                           icon: new Icon(
                             Icons.arrow_back,
-                            color: Colors.cyan,
+                            color: Colors.white,
                             size: 30.0,
                           ),
                         ),
@@ -109,7 +109,7 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                             _appBarBehavior == AppBarBehavior.snapping,
                         snap: _appBarBehavior == AppBarBehavior.snapping,
                         flexibleSpace: new FlexibleSpaceBar(
-                          title: new Text("Party"),
+                          title: new Text(""),
                           background: new Stack(
                             fit: StackFit.expand,
                             children: <Widget>[
@@ -147,27 +147,13 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                                       children: <Widget>[
                                         new Row(
                                           children: <Widget>[
-                                            new Icon(
-                                              Icons.access_time,
-                                              color: Colors.cyan,
-                                            ),
-                                            new Padding(
-                                              padding:
-                                                  const EdgeInsets.all(8.0),
-                                              child: new Text("10:00  AM"),
-                                            )
-                                          ],
-                                        ),
-                                        new Row(
-                                          children: <Widget>[
-                                            new Icon(
-                                              Icons.map,
-                                              color: Colors.cyan,
-                                            ),
-                                            new Padding(
-                                              padding:
-                                                  const EdgeInsets.all(8.0),
-                                              child: new Text("15 MILES"),
+                                            Text(
+                                              "Name of Activity",
+                                              style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 20.0,
+                                                fontWeight: FontWeight.bold
+                                              ),
                                             )
                                           ],
                                         ),
@@ -184,9 +170,56 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                                     ),
                                   ),
                                   new Text(
-                                      "Event Detail"),
+                                      "Activity Description"),
                                   new Container(
                                     margin: new EdgeInsets.only(top: 25.0),
+                                    padding: new EdgeInsets.only(
+                                        top: 10.0, bottom: 10.0),
+                                    decoration: new BoxDecoration(
+                                        color: Colors.white,
+                                        border: new Border(
+                                            top: new BorderSide(
+                                                color: Colors.black12))),
+                                    child: new Row(
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                      children: <Widget>[
+                                        new Row(
+                                          children: <Widget>[
+                                            new Icon(
+                                              Icons.access_time,
+                                              color: Colors.cyan,
+                                            ),
+                                            new Padding(
+                                              padding:
+                                              const EdgeInsets.all(8.0),
+                                              child: new Text("6:00 - 11:30 PM"),
+                                            )
+                                          ],
+                                        ),
+                                        GestureDetector(
+                                          onTap: (){
+                                            //TODO link to Google Maps location
+                                          },
+                                          child: Row(
+                                            children: <Widget>[
+                                              new Icon(
+                                                Icons.map,
+                                                color: Colors.cyan,
+                                              ),
+                                              new Padding(
+                                                padding:
+                                                const EdgeInsets.all(8.0),
+                                                child: new Text("15 MILES"),
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  new Container(
+                                    margin: new EdgeInsets.only(top: 0.0),
                                     padding: new EdgeInsets.only(
                                         top: 5.0, bottom: 10.0),
                                     height: 120.0,
@@ -197,23 +230,23 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                                                 color: Colors.black12))),
                                     child: new Column(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
+                                      MainAxisAlignment.spaceEvenly,
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      CrossAxisAlignment.start,
                                       children: <Widget>[
                                         new Text(
-                                          "ATTENDEES",
+                                          "RATINGS",
                                           style: new TextStyle(
                                               fontWeight: FontWeight.bold),
                                         ),
                                         new Row(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
+                                          MainAxisAlignment.spaceAround,
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                           children: <Widget>[
                                             new CircleAvatar(
-                                                ),
+                                            ),
                                             new CircleAvatar(
 //                                              backgroundImage: avatar2,
                                             ),

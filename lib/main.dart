@@ -9,18 +9,6 @@ import 'package:get2gether/pages/interests.dart';
 import 'package:get2gether/pages/login/login.dart';
 import 'package:get2gether/pages/schedule.dart';
 import 'package:get2gether/pages/signup.dart';
-//import 'package:new_wra/pages/activitylist.dart';
-//import 'package:new_wra/pages/add_activity_page.dart';
-//import 'package:new_wra/pages/connections_page.dart';
-//import 'package:new_wra/pages/home/home.dart';
-//import 'package:new_wra/pages/interests.dart';
-//import 'package:new_wra/pages/login/login.dart';
-//import 'package:new_wra/pages/schedule.dart';
-//import 'package:new_wra/pages/signup.dart';
-
-//void main() => runApp(new MaterialApp(
-//  home: new HomePage(),
-//));
 
 void main() {
   new Routes();
