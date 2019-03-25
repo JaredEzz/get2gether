@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get2gether/pages/widget.dart';
 
-
-class InterestsPage extends StatefulWidget{
+class AddActivityPage extends StatefulWidget{
   @override
-  _InterestsPageState createState() => new _InterestsPageState();
+  _AddActivityPageState createState() => new _AddActivityPageState();
 }
 
-class _InterestsPageState extends State<InterestsPage>{
+class _AddActivityPageState extends State<AddActivityPage>{
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +32,7 @@ class _InterestsPageState extends State<InterestsPage>{
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              "INTERESTS",
+              "ADD ACTIVITY",
               style: TextStyle(
                   fontSize: 14.0,
                   letterSpacing: 3.5,
@@ -45,7 +44,7 @@ class _InterestsPageState extends State<InterestsPage>{
       ),
       drawer: CustomDrawer(),
       body: new Center(
-          child: new Text("Interests Test")
+          child: new Text("New Activity Test")
       ),
     );
   }

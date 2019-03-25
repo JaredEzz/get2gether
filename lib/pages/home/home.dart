@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get2gether/model/database.dart';
 import 'package:get2gether/pages/home/activecard.dart';
-import 'package:get2gether/pages/home/dummyCard.dart';
+import 'package:get2gether/pages/home/backgroundCard.dart';
 import 'package:get2gether/pages/widget.dart';
 
 class HomePage extends StatefulWidget{
@@ -95,7 +95,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
   @override
   Widget build(BuildContext context) {
 
-    final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+    GlobalKey<ScaffoldState> _scaffoldKey;
+    if (_scaffoldKey == null) {
+      _scaffoldKey = new GlobalKey<ScaffoldState>();
+    }
+
     var dataLength = data.length;
     double initialBottom = 15.0;
     double backCardPosition = initialBottom + (dataLength - 1) * 10 + 10;
@@ -115,7 +119,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
             },
             child: Icon(
               Icons.account_circle,
-              color: Colors.cyan,
+              color: Colors.white,
               size: 30.0,
             ),
           ),
@@ -129,7 +133,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
               margin: const EdgeInsets.all(15.0),
               child: Icon(
                 Icons.format_list_bulleted,
-                color: Colors.cyan,
+                color: Colors.white,
                 size: 30.0,
               ),
             ),
@@ -190,7 +194,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
                   backCardPosition = backCardPosition - 10;
                   backCardWidth = backCardWidth + 10;
 
-                  return cardDemoDummy(item, backCardPosition, 0.0, 0.0,
+                  return backgroundCard(item, backCardPosition, 0.0, 0.0,
                       backCardWidth, 0.0, 0.0, context);
                 }
               }).toList())

@@ -13,7 +13,6 @@ class _ConnectionsPageState extends State<ConnectionsPage>{
 
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
     return new Scaffold(
       appBar: AppBar(
         elevation: 0.0,

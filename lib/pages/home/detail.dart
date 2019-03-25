@@ -71,7 +71,7 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
       child: new Container(
         width: width.value,
         height: heigth.value,
-        color: const Color.fromRGBO(106, 94, 175, 1.0),
+        color: const Color.fromRGBO(2, 66, 107, 1.0),
         child: new Hero(
           tag: "img",
           child: new Card(
@@ -249,7 +249,7 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                       width: 600.0,
                       height: 80.0,
                       decoration: new BoxDecoration(
-                        color: new Color.fromRGBO(121, 114, 173, 1.0),
+                        color: new Color.fromRGBO(2, 88, 143, 1.0),
                       ),
                       alignment: Alignment.center,
                       child: new Row(
@@ -263,13 +263,18 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                                 width: 130.0,
                                 alignment: Alignment.center,
                                 decoration: new BoxDecoration(
-                                  color: Colors.red,
+                                  color: Color.fromRGBO(204, 3, 3, 1.0),
                                   borderRadius: new BorderRadius.circular(60.0),
                                 ),
-                                child: new Text(
-                                  "NO",
-                                  style: new TextStyle(color: Colors.white),
-                                ),
+                                child:
+//                                new Text(
+//                                  "NO",
+//                                  style: new TextStyle(color: Colors.white),
+//                                ),
+                                  new Icon(
+                                    Icons.cancel,
+                                    color: Colors.white,
+                                  )
                               )),
                           new FlatButton(
                               padding: new EdgeInsets.all(0.0),
@@ -282,10 +287,15 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                                   color: Colors.cyan,
                                   borderRadius: new BorderRadius.circular(60.0),
                                 ),
-                                child: new Text(
-                                  "YES",
-                                  style: new TextStyle(color: Colors.white),
-                                ),
+                                child:
+//                                new Text(
+//                                  "YES",
+//                                  style: new TextStyle(color: Colors.white),
+//                                ),
+                                  new Icon(
+                                    Icons.check_circle,
+                                    color: Colors.white,
+                                  )
                               ))
                         ],
                       ))

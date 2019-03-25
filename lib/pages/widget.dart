@@ -19,6 +19,9 @@ class CustomDrawer extends StatelessWidget {
                   fit: BoxFit.fill
                 )
               ),
+              onDetailsPressed: (){
+                Navigator.pushNamed(context, "/account");
+              },
             ),
 //            ListTile(
 //              title: Text("Login"),

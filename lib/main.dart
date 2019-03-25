@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get2gether/pages/account.dart';
 import 'package:get2gether/pages/activitylist.dart';
-import 'package:get2gether/pages/add_activity_page.dart';
+import 'package:get2gether/pages/add_activity.dart';
 import 'package:get2gether/pages/connections/connections.dart';
 import 'package:get2gether/pages/connections/scan.dart';
 import 'package:get2gether/pages/home/home.dart';
@@ -30,7 +31,7 @@ class Routes {
     runApp(new MaterialApp(
       title: "Activity Picker",
       debugShowCheckedModeBanner: false,
-      home: new ConnectionsPage(),
+      home: new HomePage(),
       onGenerateRoute: (RouteSettings settings) {
         switch (settings.name) {
           case '/login':
@@ -84,6 +85,12 @@ class Routes {
           case '/activitylist':
             return new CustomRoute(
               builder: (_) => new ActivityListPage(),
+              settings: settings,
+            );
+
+          case '/account':
+            return new CustomRoute(
+              builder: (_) => new AccountPage(),
               settings: settings,
             );
         }

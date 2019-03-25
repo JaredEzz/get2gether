@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get2gether/pages/widget.dart';
 
-
-class InterestsPage extends StatefulWidget{
+class AccountPage extends StatefulWidget{
   @override
-  _InterestsPageState createState() => new _InterestsPageState();
+  _AccountPageState createState() => new _AccountPageState();
 }
 
-class _InterestsPageState extends State<InterestsPage>{
+class _AccountPageState extends State<AccountPage>{
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +21,8 @@ class _InterestsPageState extends State<InterestsPage>{
             child: Container(
               margin: const EdgeInsets.all(15.0),
               child: Icon(
-                Icons.done_outline,
-                color: Colors.white,
+                Icons.check_box_outline_blank,
+                color: Color.fromRGBO(2, 66, 107, 1.0),
                 size: 30.0,
               ),
             ),
@@ -33,7 +32,7 @@ class _InterestsPageState extends State<InterestsPage>{
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              "INTERESTS",
+              "MY ACCOUNT",
               style: TextStyle(
                   fontSize: 14.0,
                   letterSpacing: 3.5,
@@ -45,7 +44,7 @@ class _InterestsPageState extends State<InterestsPage>{
       ),
       drawer: CustomDrawer(),
       body: new Center(
-          child: new Text("Interests Test")
+          child: new Text("Account Information")
       ),
     );
   }
