@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:get2gether/model/database.dart';
 
 class DetailPage extends StatefulWidget {
   final DecorationImage type;
@@ -16,7 +17,7 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
   Animation<double> heigth;
   DecorationImage type;
   _DetailPageState({this.type});
-  List data = [];
+  List data = Database().events;
   double _appBarHeight = 256.0;
   AppBarBehavior _appBarBehavior = AppBarBehavior.pinned;
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get2gether/model/event.dart';
+import 'package:get2gether/model/activity.dart';
 import 'package:get2gether/pages/home/styles.dart';
 
 class Database {

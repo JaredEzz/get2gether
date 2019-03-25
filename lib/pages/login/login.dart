@@ -45,8 +45,8 @@ class _LoginPageState extends State<LoginPage>
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: <Color>[
-                  const Color.fromRGBO(0, 146, 199, 0.8),
-                  const Color.fromRGBO(0, 51, 63, 0.9),
+                  const Color.fromRGBO(47, 156, 139, 0.8),
+                  const Color.fromRGBO(14, 46, 41, 0.9),
                 ],
                 stops: [0.2, 1.0],
                 begin: const FractionalOffset(0.0, 0.0),
@@ -76,8 +76,9 @@ class _LoginPageState extends State<LoginPage>
                         child: const Text(
                           'Sign In',
                           textScaleFactor: 1.4,
+                          style: TextStyle(color: Colors.white),
                         ),
-                        color: Colors.indigoAccent,
+                        color: Color.fromRGBO(2, 66, 107, 1),
                         elevation: 16.0,
                         splashColor: Colors.blueGrey,
                         onPressed: () {

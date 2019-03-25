@@ -69,7 +69,7 @@ Positioned cardDemo(
                   width: screenSize.width / 1.2 + cardWidth,
                   height: screenSize.height / 1.7,
                   decoration: new BoxDecoration(
-                    color: new Color.fromRGBO(121, 114, 173, 1.0),
+                    color: new Color.fromRGBO(2, 88, 143, 1.0),
                     borderRadius: new BorderRadius.circular(8.0),
                   ),
                   child: new Column(
@@ -102,14 +102,19 @@ Positioned cardDemo(
                                     width: 130.0,
                                     alignment: Alignment.center,
                                     decoration: new BoxDecoration(
-                                      color: Colors.red,
+                                      color: Color.fromRGBO(204, 3, 3, 1.0),
                                       borderRadius:
                                       new BorderRadius.circular(60.0),
                                     ),
-                                    child: new Text(
-                                      "NO",
-                                      style: new TextStyle(color: Colors.white),
-                                    ),
+                                    child:
+//                                    new Text(
+//                                      "NO",
+//                                      style: new TextStyle(color: Colors.white),
+//                                    ),
+                                    new Icon(
+                                      Icons.cancel,
+                                      color: Colors.white,
+                                    )
                                   )),
                               new FlatButton(
                                   padding: new EdgeInsets.all(0.0),
@@ -121,14 +126,20 @@ Positioned cardDemo(
                                     width: 130.0,
                                     alignment: Alignment.center,
                                     decoration: new BoxDecoration(
+//                                      color: Color.fromRGBO(29, 255, 221, 1.0),
                                       color: Colors.cyan,
                                       borderRadius:
                                       new BorderRadius.circular(60.0),
                                     ),
-                                    child: new Text(
-                                      "YES",
-                                      style: new TextStyle(color: Colors.white),
-                                    ),
+                                    child:
+//                                    new Text(
+//                                      "YES",
+//                                      style: new TextStyle(color: Colors.black),
+//                                    ),
+                                    new Icon(
+                                      Icons.check_circle,
+                                      color: Colors.white,
+                                    )
                                   ))
                             ],
                           ))

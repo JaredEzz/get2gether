@@ -29,7 +29,7 @@ class Routes {
     runApp(new MaterialApp(
       title: "Activity Picker",
       debugShowCheckedModeBanner: false,
-      home: new HomePage(),
+      home: new LoginPage(),
       onGenerateRoute: (RouteSettings settings) {
         switch (settings.name) {
           case '/login':

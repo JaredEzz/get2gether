@@ -105,7 +105,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
       key: _scaffoldKey,
       appBar: AppBar(
         elevation: 0.0,
-        backgroundColor: new Color.fromRGBO(106, 94, 175, 1.0),
+        backgroundColor: new Color.fromRGBO(2, 66, 107, 1.0),
         centerTitle: true,
         leading: Container(
           margin: const EdgeInsets.all(15),
@@ -164,7 +164,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
       ),
       drawer: CustomDrawer(),
       body: Container(
-        color: Color.fromRGBO(106, 94, 175, 1.0),
+        color: Color.fromRGBO(2, 66, 107, 1.0),
         alignment: AlignmentDirectional.center,
         child: dataLength > 0 ?
             Stack(
