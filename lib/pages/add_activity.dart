@@ -49,4 +49,6 @@ class _AddActivityPageState extends State<AddActivityPage>{
     );
   }
 
+  //TODO link to google maps specific instance rather than lat-lon.
+
 }

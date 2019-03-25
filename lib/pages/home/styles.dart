@@ -10,7 +10,7 @@ DecorationImage image2 = DecorationImage(
     fit: BoxFit.cover
 );
 
-//Hikinh
+//Hiking
 DecorationImage image3 = DecorationImage(
     image: new NetworkImage("https://backroads-web.s3.amazonaws.com/images/search/thumbnail/french-italian-alps-walking-hiking-tour.jpg"),
     fit: BoxFit.cover

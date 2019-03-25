@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:get2gether/model/activity.dart';
 import 'package:get2gether/model/database.dart';
 
 class DetailPage extends StatefulWidget {
@@ -17,7 +18,7 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
   Animation<double> height;
   DecorationImage type;
   _DetailPageState({this.type});
-  List data = Database().events;
+  List imagesData = Database().allImages;
   double _appBarHeight = 256.0;
   AppBarBehavior _appBarBehavior = AppBarBehavior.pinned;
 
@@ -60,7 +61,8 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     timeDilation = 0.7;
-    int img = data.indexOf(type);
+    int index = imagesData.indexOf(type);
+    Activity currentActivity = Database().specificActivity(index);
     //print("detail");
     return new Theme(
       data: new ThemeData(
@@ -73,7 +75,7 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
         height: height.value,
         color: const Color.fromRGBO(2, 66, 107, 1.0),
         child: new Hero(
-          tag: "img",
+          tag: "index",
           child: new Card(
             color: Colors.transparent,
             child: new Container(
@@ -117,7 +119,7 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                                 width: width.value,
                                 height: _appBarHeight,
                                 decoration: new BoxDecoration(
-                                  image: data[img],
+                                  image: imagesData[index],
                                 ),
                               ),
                             ],
@@ -148,7 +150,7 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                                         new Row(
                                           children: <Widget>[
                                             Text(
-                                              "Name of Activity",
+                                              currentActivity.name,
                                               style: TextStyle(
                                                 color: Colors.black,
                                                 fontSize: 20.0,
@@ -170,7 +172,7 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                                     ),
                                   ),
                                   new Text(
-                                      "Activity Description"),
+                                      currentActivity.description),
                                   new Container(
                                     margin: new EdgeInsets.only(top: 25.0),
                                     padding: new EdgeInsets.only(
@@ -211,6 +213,7 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                                                 padding:
                                                 const EdgeInsets.all(8.0),
                                                 child: new Text("15 MILES"),
+                                                //TODO calculate distance from current location
                                               )
                                             ],
                                           ),
