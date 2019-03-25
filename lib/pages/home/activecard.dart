@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-//import 'package:get2gether/pages/home/detail.dart';
+import 'package:get2gether/pages/home/detail.dart';
 
 Positioned cardDemo(
     DecorationImage img,
@@ -57,10 +57,9 @@ Positioned cardDemo(
                 //     context,
                 //     new MaterialPageRoute(
                 //         builder: (context) => new DetailPage(type: img)));
-//                Navigator.of(context).push(new PageRouteBuilder(
-//                  pageBuilder: (_, __, ___) => new DetailPage(type: img),
-//                ));
-                Navigator.of(context).pushNamed("/home");
+                Navigator.of(context).push(new PageRouteBuilder(
+                  pageBuilder: (_, __, ___) => new DetailPage(type: img),
+                ));
               },
               child: new Card(
                 color: Colors.transparent,
