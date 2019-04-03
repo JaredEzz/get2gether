@@ -112,7 +112,7 @@ class _ConnectionsPageState extends State<ConnectionsPage>{
                             MaterialPageRoute(builder: (context) => GenerateScreen()),
                           );
                         },
-                        child: const Text('Get QR Code')
+                        child: const Text('Share My QR Code')
                     ),
                   ),
                   Padding(

@@ -42,7 +42,6 @@ class _SignUpPageState extends State<SignUpPage>{
           ],
         ),
       ),
-      drawer: CustomDrawer(),
       body: new Center(
         child: new Text("Sign Up Test")
       ),

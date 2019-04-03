@@ -43,7 +43,6 @@ class _InterestsPageState extends State<InterestsPage>{
           ],
         ),
       ),
-      drawer: CustomDrawer(),
       body: new Center(
           child: new Text("Interests Test")
       ),

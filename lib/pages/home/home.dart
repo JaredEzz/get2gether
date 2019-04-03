@@ -111,28 +111,15 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
         elevation: 0.0,
         backgroundColor: new Color.fromRGBO(2, 66, 107, 1.0),
         centerTitle: true,
-        leading: Container(
-          margin: const EdgeInsets.all(15),
-          child: GestureDetector(
-            onTap: () {
-              _scaffoldKey.currentState.openDrawer();
-            },
-            child: Icon(
-              Icons.account_circle,
-              color: Colors.white,
-              size: 30.0,
-            ),
-          ),
-        ),
         actions: <Widget>[
           GestureDetector(
             onTap: () {
-              Navigator.pushNamed(context, "/activitylist");
+              Navigator.pushNamed(context, "/connections");
             },
             child: Container(
               margin: const EdgeInsets.all(15.0),
               child: Icon(
-                Icons.format_list_bulleted,
+                Icons.people,
                 color: Colors.white,
                 size: 30.0,
               ),
@@ -142,12 +129,17 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              "ACTIVITIES",
-              style: TextStyle(
-                fontSize: 14.0,
-                letterSpacing: 3.5,
-                fontWeight: FontWeight.bold
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, "/activitylist");
+              },
+              child: Text(
+                "ACTIVITIES",
+                style: TextStyle(
+                    fontSize: 14.0,
+                    letterSpacing: 3.5,
+                    fontWeight: FontWeight.bold
+                ),
               ),
             ),
             Container(
@@ -198,7 +190,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
                       backCardWidth, 0.0, 0.0, context);
                 }
               }).toList())
-            : new Text("No Events Left",
+            : new Text("No Activities Left",
         style: new TextStyle(color: Colors.white, fontSize:  50.0)),
       ),
     );

@@ -42,7 +42,6 @@ class _ActivityListPageState extends State<ActivityListPage>{
           ],
         ),
       ),
-      drawer: CustomDrawer(),
       body: new Center(
           child: new Text("Activity List Test")
       ),

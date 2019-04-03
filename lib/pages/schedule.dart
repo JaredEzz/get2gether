@@ -42,7 +42,6 @@ class _SchedulePageState extends State<SchedulePage>{
           ],
         ),
       ),
-      drawer: CustomDrawer(),
       body: new Center(
           child: new Text("Schedule Test")
       ),

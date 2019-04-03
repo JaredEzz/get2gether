@@ -42,7 +42,6 @@ class _AddActivityPageState extends State<AddActivityPage>{
           ],
         ),
       ),
-      drawer: CustomDrawer(),
       body: new Center(
           child: new Text("New Activity Test")
       ),

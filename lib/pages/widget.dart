@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get2gether/pages/connections/generate.dart';
 
 
 ///For all my small, reusable widgets
@@ -22,6 +23,19 @@ class CustomDrawer extends StatelessWidget {
               onDetailsPressed: (){
                 Navigator.pushNamed(context, "/account");
               },
+              otherAccountsPictures: <Widget>[
+                GestureDetector(
+                  child: Image(
+                    image: AssetImage('assets/miniqr.png'),
+                  ),
+                  onTap: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => GenerateScreen()),
+                    );
+                  },
+                )
+              ],
             ),
 //            ListTile(
 //              title: Text("Login"),
@@ -30,11 +44,18 @@ class CustomDrawer extends StatelessWidget {
 //                Navigator.pushNamed(context, "/login");
 //              },
 //            ),
+//            ListTile(
+//              title: Text("Home"),
+//              trailing: Icon(Icons.home),
+//              onTap: () {
+//                Navigator.pushNamed(context, "/home");
+//              },
+//            ),
             ListTile(
-              title: Text("Home"),
-              trailing: Icon(Icons.home),
+              title: Text("Activity List"),
+              trailing: Icon(Icons.format_list_bulleted),
               onTap: () {
-                Navigator.pushNamed(context, "/home");
+                Navigator.pushNamed(context, "/activitylist");
               },
             ),
             ListTile(
@@ -95,6 +116,9 @@ class Tick extends StatelessWidget {
 }
 
 class FormContainer extends StatelessWidget {
+  final TextEditingController usernameController;
+  final TextEditingController passwordController;
+  FormContainer({this.usernameController,this.passwordController});
   @override
   Widget build(BuildContext context) {
     return (new Container(
@@ -110,11 +134,13 @@ class FormContainer extends StatelessWidget {
                     hint: "Username",
                     obscure: false,
                     icon: Icons.person_outline,
+                    controller: usernameController,
                   ),
                   new InputFieldArea(
                     hint: "Password",
                     obscure: true,
                     icon: Icons.lock_outline,
+                    controller: passwordController,
                   ),
                 ],
               )),
@@ -128,7 +154,8 @@ class InputFieldArea extends StatelessWidget {
   final String hint;
   final bool obscure;
   final IconData icon;
-  InputFieldArea({this.hint, this.obscure, this.icon});
+  final TextEditingController controller;
+  InputFieldArea({this.hint, this.obscure, this.icon, this.controller});
   @override
   Widget build(BuildContext context) {
     return (new Container(
@@ -141,6 +168,7 @@ class InputFieldArea extends StatelessWidget {
         ),
       ),
       child: new TextFormField(
+        controller: controller,
         obscureText: obscure,
         style: const TextStyle(
           color: Colors.white,

@@ -1,24 +1,25 @@
 import 'package:flutter/material.dart';
 
-DecorationImage image6 = DecorationImage(
+DecorationImage image1 = DecorationImage(
     image: new NetworkImage("https://cdn.topgolf.com/assets/galleries/11551/2131_hitting-bays-night-topgolf-centennial-01.jpg"),
     fit: BoxFit.cover
 );
 
+//Movies
 DecorationImage image2 = DecorationImage(
-    image: new NetworkImage("https://nsclibrary.org/wp-content/uploads/2018/04/movie.jpg"),
+    image: new NetworkImage("https://media.bizj.us/view/img/10722955/cinemark-xd-auditorium*750xx7378-4150-0-387.jpg"),
     fit: BoxFit.cover
 );
 
 //Hiking
 DecorationImage image3 = DecorationImage(
-    image: new NetworkImage("https://backroads-web.s3.amazonaws.com/images/search/thumbnail/french-italian-alps-walking-hiking-tour.jpg"),
+    image: new NetworkImage("https://i2.wp.com/www.yourhikeguide.com/wp-content/uploads/Mount-Timpanogos.jpg?fit=4000%2C2657"),
     fit: BoxFit.cover
 );
 
 //Bar
 DecorationImage image4 = DecorationImage(
-    image: new NetworkImage("https://cdn.vox-cdn.com/thumbor/HBFgV_aM98H0dqrNCQYwzTfs8x4=/0x0:8256x6191/1200x675/filters:focal(4785x2414:6105x3734)/cdn.vox-cdn.com/uploads/chorus_image/image/55930313/Photo_Jul_26__12_33_33.0.jpg"),
+    image: new NetworkImage("https://hilbersinc.com/wp-content/gallery/buffalo-wild-wings/bww-lynnwood003.jpg"),
     fit: BoxFit.cover
 );
 
@@ -28,9 +29,9 @@ DecorationImage image5 = DecorationImage(
     fit: BoxFit.cover
 );
 
-//Night Life Comedy
-DecorationImage image1 = DecorationImage(
-    image: new NetworkImage("https://cbssanfran.files.wordpress.com/2012/04/nightlife-music-comedy-rooster-t-feathers-comedy-club.jpg"),
+//Theme Park
+DecorationImage image6 = DecorationImage(
+    image: new NetworkImage("https://i.pinimg.com/originals/35/84/5b/35845b6ed20470d3448f45635f74c1a2.jpg"),
     fit: BoxFit.cover
 );
 

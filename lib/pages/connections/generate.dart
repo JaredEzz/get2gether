@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get2gether/model/database.dart';
+import 'package:get2gether/model/user.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:flutter/services.dart';
 import 'dart:async';
@@ -24,6 +26,14 @@ class GenerateScreenState extends State<GenerateScreen> {
   String _dataString = "Hello from this QR";
   String _inputErrorText;
   final TextEditingController _textController =  TextEditingController();
+  final User currentUser = Database().currentUser;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    generate();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -102,18 +112,16 @@ class GenerateScreenState extends State<GenerateScreen> {
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Expanded(
-                    child:  TextField(
-                      controller: _textController,
-                      decoration:  InputDecoration(
-                        hintText: "Enter username",
-                        errorText: _inputErrorText,
-                      ),
-                      onChanged: (text){
-                        generate();
-                      },
-                    ),
-                  ),
+//                  Padding(
+//                    padding: EdgeInsets.symmetric(vertical: 0, horizontal: 80),
+//                    child:  Text(
+//                      "Username: "+currentUser.username,
+//                      style: TextStyle(
+//                        fontWeight: FontWeight.bold,
+//                        fontSize: 19
+//                      ),
+//                    )
+//                  ),
                 ],
               ),
             ),
@@ -142,6 +150,7 @@ class GenerateScreenState extends State<GenerateScreen> {
 
   void generate() {
     setState((){
+      _textController.text = currentUser.username;
       _dataString = _textController.text;
       _inputErrorText = null;
     });
