@@ -122,7 +122,8 @@ class _LoginPageState extends State<LoginPage>
   doLogin(BuildContext context) {
     //TODO authenticate database and perform error checking
     //find user in database
-    User loginUser = database.users.singleWhere((user) => user.username == usernameController.text, orElse: () => null);
+//    User loginUser = database.users.singleWhere((user) => user.username == usernameController.text, orElse: () => null);
+    User loginUser = database.findUser(usernameController.text);
 
     if(loginUser != null && loginUser.password == passwordController.text) {
       Navigator.pushNamed(context, "/home");

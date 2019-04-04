@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get2gether/model/database.dart';
+import 'package:get2gether/model/user.dart';
 import 'package:get2gether/pages/connections/generate.dart';
 import 'package:get2gether/pages/connections/scan.dart';
 import 'package:get2gether/pages/widget.dart';
@@ -10,9 +11,14 @@ class ConnectionsPage extends StatefulWidget{
 }
 
 class _ConnectionsPageState extends State<ConnectionsPage>{
+  List connections = Database().currentUser.connections;
+  List connectionNames = List<String>();
 
   @override
   Widget build(BuildContext context) {
+    for (User user in connections) {
+      connectionNames.add(user.username);
+    }
     return new Scaffold(
       appBar: AppBar(
         elevation: 0.0,
@@ -60,7 +66,6 @@ class _ConnectionsPageState extends State<ConnectionsPage>{
           ],
         ),
       ),
-      drawer: CustomDrawer(),
       body: new Center(
         child:
 
@@ -71,19 +76,21 @@ class _ConnectionsPageState extends State<ConnectionsPage>{
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
                     child:
-                    Database().connections.length <= 0 ?
+                    connections.length <= 0 ?
                     const Text(
                       "You have 0 Connections"
                     ) :
                     Text(
-                      "You have " + Database().connections.length.toString() + " Connections"
+                      "You have " + connections.length.toString() + " Connections"
                     ),
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
                     child:
-                    Database().connections.length <= 0 ?
-                    Text("Empty Connections List"): Text("Here are your connections: "+ Database().connections.toString()) ,
+                    connections.length <= 0 ?
+                    Text("Empty Connections List"): Text(
+                        "Here are your connections: "+ connectionNames.toString()
+                    ) ,
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
@@ -127,7 +134,7 @@ class _ConnectionsPageState extends State<ConnectionsPage>{
                         textColor: Colors.black,
                         splashColor: Colors.pinkAccent,
                         onPressed: () {
-                          Database().connections = [];
+                          connections = [];
                           Navigator.pushNamed(
                             context,
                             "/connections"
@@ -143,7 +150,7 @@ class _ConnectionsPageState extends State<ConnectionsPage>{
                         textColor: Colors.black,
                         splashColor: Colors.pinkAccent,
                         onPressed: () {
-                          Database().connections = ["mockConnection1","mockConnection2"];
+                          connections = ["mockConnection1","mockConnection2"];
                           Navigator.pushNamed(
                               context,
                               "/connections"

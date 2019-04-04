@@ -115,13 +115,18 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                           background: new Stack(
                             fit: StackFit.expand,
                             children: <Widget>[
-                              new Container(
-                                width: width.value,
-                                height: _appBarHeight,
-                                decoration: new BoxDecoration(
-                                  image: imagesData[index],
+                              GestureDetector(
+                                child: new Container(
+                                  width: width.value,
+                                  height: _appBarHeight,
+                                  decoration: new BoxDecoration(
+                                    image: imagesData[index],
+                                  ),
                                 ),
-                              ),
+                                onTap: (){
+                                  Navigator.of(context).pop();
+                                },
+                              )
                             ],
                           ),
                         ),
@@ -281,60 +286,60 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                       ),
                     ],
                   ),
-                  new Container(
-                      width: 600.0,
-                      height: 80.0,
-                      decoration: new BoxDecoration(
-                        color: new Color.fromRGBO(2, 88, 143, 1.0),
-                      ),
-                      alignment: Alignment.center,
-                      child: new Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          new FlatButton(
-                              padding: new EdgeInsets.all(0.0),
-                              onPressed: () {},
-                              child: new Container(
-                                height: 60.0,
-                                width: 130.0,
-                                alignment: Alignment.center,
-                                decoration: new BoxDecoration(
-                                  color: Color.fromRGBO(204, 3, 3, 1.0),
-                                  borderRadius: new BorderRadius.circular(60.0),
-                                ),
-                                child:
-//                                new Text(
-//                                  "NO",
-//                                  style: new TextStyle(color: Colors.white),
+//                  new Container(
+//                      width: 600.0,
+//                      height: 80.0,
+//                      decoration: new BoxDecoration(
+//                        color: new Color.fromRGBO(2, 88, 143, 1.0),
+//                      ),
+//                      alignment: Alignment.center,
+//                      child: new Row(
+//                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//                        children: <Widget>[
+//                          new FlatButton(
+//                              padding: new EdgeInsets.all(0.0),
+//                              onPressed: () {},
+//                              child: new Container(
+//                                height: 60.0,
+//                                width: 130.0,
+//                                alignment: Alignment.center,
+//                                decoration: new BoxDecoration(
+//                                  color: Color.fromRGBO(204, 3, 3, 1.0),
+//                                  borderRadius: new BorderRadius.circular(60.0),
 //                                ),
-                                  new Icon(
-                                    Icons.cancel,
-                                    color: Colors.white,
-                                  )
-                              )),
-                          new FlatButton(
-                              padding: new EdgeInsets.all(0.0),
-                              onPressed: () {},
-                              child: new Container(
-                                height: 60.0,
-                                width: 130.0,
-                                alignment: Alignment.center,
-                                decoration: new BoxDecoration(
-                                  color: Colors.cyan,
-                                  borderRadius: new BorderRadius.circular(60.0),
-                                ),
-                                child:
-//                                new Text(
-//                                  "YES",
-//                                  style: new TextStyle(color: Colors.white),
+//                                child:
+////                                new Text(
+////                                  "NO",
+////                                  style: new TextStyle(color: Colors.white),
+////                                ),
+//                                  new Icon(
+//                                    Icons.cancel,
+//                                    color: Colors.white,
+//                                  )
+//                              )),
+//                          new FlatButton(
+//                              padding: new EdgeInsets.all(0.0),
+//                              onPressed: () {},
+//                              child: new Container(
+//                                height: 60.0,
+//                                width: 130.0,
+//                                alignment: Alignment.center,
+//                                decoration: new BoxDecoration(
+//                                  color: Colors.cyan,
+//                                  borderRadius: new BorderRadius.circular(60.0),
 //                                ),
-                                  new Icon(
-                                    Icons.check_circle,
-                                    color: Colors.white,
-                                  )
-                              ))
-                        ],
-                      ))
+//                                child:
+////                                new Text(
+////                                  "YES",
+////                                  style: new TextStyle(color: Colors.white),
+////                                ),
+//                                  new Icon(
+//                                    Icons.check_circle,
+//                                    color: Colors.white,
+//                                  )
+//                              ))
+//                        ],
+//                      ))
                 ],
               ),
             ),

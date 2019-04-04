@@ -20,7 +20,9 @@ class User{
   Schedule _schedule;
   DecorationImage _qrCode;
 
-  User.simple(this._username,this._password);
+  User.simple(this._username,this._password){
+   this._connections = [];
+  }
   User(this._username,this._first,this._last,this._email,this._phone, this._addActivityCount, this._swipeCount);
 
   int get id => _id;

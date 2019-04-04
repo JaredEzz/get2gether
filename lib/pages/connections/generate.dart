@@ -103,25 +103,31 @@ class GenerateScreenState extends State<GenerateScreen> {
             padding: const EdgeInsets.only(
               top: _topSectionTopPadding,
               left: 20.0,
-              right: 10.0,
+              right: 20.0,
               bottom: _topSectionBottomPadding,
             ),
             child:  Container(
               height: _topSectionHeight,
               child:  Row(
-                mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-//                  Padding(
-//                    padding: EdgeInsets.symmetric(vertical: 0, horizontal: 80),
-//                    child:  Text(
-//                      "Username: "+currentUser.username,
-//                      style: TextStyle(
-//                        fontWeight: FontWeight.bold,
-//                        fontSize: 19
-//                      ),
-//                    )
-//                  ),
+                  Text(
+                    "Username:  ",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+//                      decoration: TextDecoration.underline,
+                      fontSize: 19
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  Text(
+                    currentUser.username,
+                    style: TextStyle(
+                        fontSize: 19
+                    ),
+                    textAlign: TextAlign.center,
+                  )
                 ],
               ),
             ),

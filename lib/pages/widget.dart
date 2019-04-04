@@ -58,13 +58,13 @@ class CustomDrawer extends StatelessWidget {
                 Navigator.pushNamed(context, "/activitylist");
               },
             ),
-            ListTile(
-              title: Text("Schedule"),
-              trailing: Icon(Icons.calendar_today),
-              onTap: () {
-                Navigator.pushNamed(context, "/schedule");
-              },
-            ),
+//            ListTile(
+//              title: Text("Schedule"),
+//              trailing: Icon(Icons.calendar_today),
+//              onTap: () {
+//                Navigator.pushNamed(context, "/schedule");
+//              },
+//            ),
             ListTile(
               title: Text("Interests"),
               trailing: Icon(Icons.star),

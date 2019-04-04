@@ -1,9 +1,12 @@
 
 import 'dart:async';
+import 'dart:math';
 
 import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get2gether/model/database.dart';
+import 'package:get2gether/model/user.dart';
 
 class AddConnectionPage extends StatefulWidget {
   @override
@@ -12,6 +15,9 @@ class AddConnectionPage extends StatefulWidget {
 
 class _ScanState extends State<AddConnectionPage> {
   String barcode = "";
+  String successMessage = "";
+  User currentUser = Database().currentUser;
+  List users = Database().users;
 
   @override
   initState() {
@@ -71,13 +77,26 @@ class _ScanState extends State<AddConnectionPage> {
                     onPressed: scan,
                     child: const Text('Scan a QR Code')
                 ),
-              )
-              ,
+              ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                child: Text(barcode, textAlign: TextAlign.center,),
-              )
-              ,
+                child: RaisedButton(
+                    color: Color.fromRGBO(224, 139, 124, 1.0),
+                    textColor: Colors.white,
+                    splashColor: Colors.blueGrey,
+                    onPressed: (){
+                      User randomUser = users[Random().nextInt(users.length)];
+                      addConnection(randomUser.username);
+                    },
+                    child: const Text('Test - Add a Random Connection')
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                child: Text(
+                  successMessage,
+                  textAlign: TextAlign.center,),
+              ),
             ],
           ),
         ));
@@ -86,19 +105,48 @@ class _ScanState extends State<AddConnectionPage> {
   Future scan() async {
     try {
       String barcode = await BarcodeScanner.scan();
-      setState(() => this.barcode = barcode);
+      addConnection(barcode);
     } on PlatformException catch (e) {
       if (e.code == BarcodeScanner.CameraAccessDenied) {
         setState(() {
-          this.barcode = 'The user did not grant the camera permission!';
+          this.successMessage = 'The user did not grant the camera permission!';
         });
       } else {
         setState(() => this.barcode = 'Unknown error: $e');
       }
     } on FormatException{
-      setState(() => this.barcode = 'null (User returned using the "back"-button before scanning anything. Result)');
+      setState(() => this.successMessage = 'null (User returned using the "back"-button before scanning anything)');
     } catch (e) {
       setState(() => this.barcode = 'Unknown error: $e');
     }
+  }
+
+  void addConnection(String barcode) {
+    User toAdd = Database().findUser(barcode);
+    if(toAdd == null){
+      noExistingUsernameDialog();
+    }else{
+      setState(() => this.successMessage = 'Connection Successfully Added – ' + barcode);
+      currentUser.connections.add(toAdd);
+    }
+  }
+
+  void noExistingUsernameDialog(){
+    showDialog(context: context,
+        builder: (BuildContext context){
+          return AlertDialog(
+            title: Text("ok"),
+            content: Text("ok"),
+            actions: <Widget>[
+              new FlatButton(
+                child: Text("Try Again"),
+                onPressed: (){
+                  Navigator.of(context).pop();
+                },
+              )
+            ],
+          );
+        }
+    );
   }
 }

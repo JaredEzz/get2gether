@@ -83,5 +83,8 @@ class Database {
     _activityImages = value;
   }
 
+  User findUser(String username){
+    return users.singleWhere((user) => user.username == username, orElse: () => null);
+  }
 
 }
