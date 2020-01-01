@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get2gether/model/category.dart';
 import 'package:get2gether/model/location.dart';
 import 'package:get2gether/model/rating.dart';
+import 'package:uuid/uuid.dart';
 
 class Activity{
+  String _id;
   DecorationImage _mainDecorationImage;
   List<DecorationImage> _images;
   String _name;
@@ -11,10 +13,13 @@ class Activity{
   Rating _rating;
   List<Category> _categories;
   Location _location;
+  var uuid = new Uuid();
 
   Activity.blank();
 
-  Activity.limited1(this._mainDecorationImage,this._name,this._description);
+  Activity.limited1(this._mainDecorationImage,this._name,this._description){
+    this._id = uuid.v4();
+  }
   Activity.limited2(this._mainDecorationImage,this._name){
     _description = "";
     _images = [];
@@ -59,6 +64,12 @@ class Activity{
 
   set mainDecorationImage(DecorationImage value) {
     _mainDecorationImage = value;
+  }
+
+  String get id => _id;
+
+  set id(String value) {
+    _id = value;
   }
 
 

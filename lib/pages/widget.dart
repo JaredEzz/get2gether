@@ -7,94 +7,73 @@ import 'package:get2gether/pages/connections/generate.dart';
 class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-        child: ListView(
-          children: <Widget>[
+    return Drawer(        child: ListView(
+      children: <Widget>[
 
-            UserAccountsDrawerHeader(
-              accountEmail: new Text("jaredezzethasson@gmail.com", style: TextStyle(color: Colors.white)),
-              accountName: new Text("Jared Hasson", style: TextStyle(color: Colors.white),),
-              decoration: BoxDecoration(
-                image: DecorationImage(
+        UserAccountsDrawerHeader(
+          accountEmail: new Text("jaredezzethasson@gmail.com", style: TextStyle(color: Colors.white)),
+          accountName: new Text("Jared Hasson", style: TextStyle(color: Colors.white),),
+          decoration: BoxDecoration(
+              image: DecorationImage(
                   image: NetworkImage("https://www.navitasventures.com/wp-content/uploads/2016/06/Material-design-background-514054880_2126x1416-1024x682.jpeg"),
                   fit: BoxFit.fill
-                )
+              )
+          ),
+          onDetailsPressed: (){
+            Navigator.pushNamed(context, "/account");
+          },
+          otherAccountsPictures: <Widget>[
+            GestureDetector(
+              child: Image(
+                image: AssetImage('assets/miniqr.png'),
               ),
-              onDetailsPressed: (){
-                Navigator.pushNamed(context, "/account");
+              onTap: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => GenerateScreen()),
+                );
               },
-              otherAccountsPictures: <Widget>[
-                GestureDetector(
-                  child: Image(
-                    image: AssetImage('assets/miniqr.png'),
-                  ),
-                  onTap: (){
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => GenerateScreen()),
-                    );
-                  },
-                )
-              ],
-            ),
-//            ListTile(
-//              title: Text("Login"),
-//              trailing: Icon(Icons.account_box),
-//              onTap: () {
-//                Navigator.pushNamed(context, "/login");
-//              },
-//            ),
-//            ListTile(
-//              title: Text("Home"),
-//              trailing: Icon(Icons.home),
-//              onTap: () {
-//                Navigator.pushNamed(context, "/home");
-//              },
-//            ),
-            ListTile(
-              title: Text("Activity List"),
-              trailing: Icon(Icons.format_list_bulleted),
-              onTap: () {
-                Navigator.pushNamed(context, "/activitylist");
-              },
-            ),
-//            ListTile(
-//              title: Text("Schedule"),
-//              trailing: Icon(Icons.calendar_today),
-//              onTap: () {
-//                Navigator.pushNamed(context, "/schedule");
-//              },
-//            ),
-            ListTile(
-              title: Text("Interests"),
-              trailing: Icon(Icons.star),
-              onTap: () {
-                Navigator.pushNamed(context, "/interests");
-              },
-            ),
-            ListTile(
-              title: Text("Connections"),
-              trailing: Icon(Icons.people_outline),
-              onTap: () {
-                Navigator.pushNamed(context, "/connections");
-              },
-            ),
-            ListTile(
-              title: Text("Add New Activity"),
-              trailing: Icon(Icons.add),
-              onTap: () {
-                Navigator.pushNamed(context, "/new");
-              },
-            ),
-            ListTile(
-              title: Text("Log Out"),
-              trailing: Icon(Icons.arrow_back),
-              onTap: () {
-                Navigator.pushReplacementNamed(context, "/login");
-              },
-            ),
+            )
           ],
-        )
+        ),
+        ListTile(
+          title: Text("Activity List"),
+          trailing: Icon(Icons.format_list_bulleted),
+          onTap: () {
+            Navigator.pushNamed(context, "/activitylist");
+          },
+        ),
+        ListTile(
+          title: Text("Interests"),
+          trailing: Icon(Icons.star),
+          onTap: () {
+            Navigator.pushNamed(context, "/interests");
+          },
+        ),
+        ListTile(
+          title: Text("Connections"),
+          trailing: Icon(Icons.people_outline),
+          onTap: () {
+            Navigator.pushNamed(context, "/connections");
+          },
+        ),
+        ListTile(
+          title: Text("Add New Activity"),
+          trailing: Icon(Icons.add),
+          onTap: () {
+            Navigator.pushNamed(context, "/new");
+          },
+        ),
+        ListTile(
+          title: Text("Log Out"),
+          trailing: Icon(Icons.arrow_back),
+          onTap: () {
+            Navigator.pushReplacementNamed(context, "/login");
+          },
+        ),
+      ],
+    )
+
     );
   }
 }

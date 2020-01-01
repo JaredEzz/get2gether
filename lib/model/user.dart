@@ -1,3 +1,4 @@
+import 'package:get2gether/model/activity.dart';
 import 'package:get2gether/model/category.dart';
 import 'package:get2gether/model/schedule.dart';
 import 'package:flutter/material.dart';
@@ -15,13 +16,16 @@ class User{
   int _addActivityCount;
   String _units = "miles";
 
+
   List<Category> _interests;
   List<User> _connections;
+  List<Activity> _suggestions;
   Schedule _schedule;
   DecorationImage _qrCode;
 
   User.simple(this._username,this._password){
    this._connections = [];
+   this._suggestions = [];
   }
   User(this._username,this._first,this._last,this._email,this._phone, this._addActivityCount, this._swipeCount);
 
@@ -113,6 +117,12 @@ class User{
 
   set swipeCount(int value) {
     _swipeCount = value;
+  }
+
+  List<Activity> get suggestions => _suggestions;
+
+  set suggestions(List<Activity> value) {
+    _suggestions = value;
   }
 
 

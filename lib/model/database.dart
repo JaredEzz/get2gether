@@ -87,4 +87,8 @@ class Database {
     return users.singleWhere((user) => user.username == username, orElse: () => null);
   }
 
+  Activity findActivity(String activityId){
+    return activities.singleWhere((activity) => activity.id == activityId, orElse: () => null);
+  }
+
 }

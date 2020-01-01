@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get2gether/model/activity.dart';
 import 'package:get2gether/model/database.dart';
+import 'package:get2gether/model/user.dart';
 import 'package:get2gether/pages/home/activecard.dart';
 import 'package:get2gether/pages/home/backgroundCard.dart';
 import 'package:get2gether/pages/widget.dart';
@@ -19,7 +21,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
   Animation<Color> fadeScreenAnimation;
   int flag = 0;
   List data = Database().activityImages;
+  List activities = Database().activities;
   List selectedData = [];
+  User currentUser = Database().currentUser;
 
   void initState() {
     super.initState();
@@ -55,7 +59,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
         if (rotate.isCompleted) {
           var i = data.removeLast();
           data.insert(0, i);
-
+          //TODO add counting logic
           _buttonController.reset();
         }
       });
@@ -163,7 +167,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
         color: Color.fromRGBO(2, 66, 107, 1.0),
         alignment: AlignmentDirectional.center,
         child: dataLength > 0 ?
-            Stack(
+          Stack(
               alignment: AlignmentDirectional.center,
               children: data.map((item) {
                 if (data.indexOf(item) == dataLength - 1) {
@@ -180,7 +184,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
                       flag,
                       addImg,
                       swipeRight,
-                      swipeLeft
+                      swipeLeft,
                   );
                 } else {
                   backCardPosition = backCardPosition - 10;
@@ -190,19 +194,22 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
                       backCardWidth, 0.0, 0.0, context);
                 }
               }).toList())
-            : new Text("No Activities Left",
-        style: new TextStyle(color: Colors.white, fontSize:  50.0)),
+            : new Text("No Activities Left.",
+        style: new TextStyle(color: Colors.white, fontSize:  30.0)),
       ),
     );
   }
 
   dismissImg(DecorationImage img) {
+    int activityId = data.indexOf(img);
     setState(() {
       data.remove(img);
+      //TODO add logic
     });
   }
 
   addImg(DecorationImage img) {
+    addSuggestedActivity(img);
     setState(() {
       data.remove(img);
       selectedData.add(img);
@@ -231,5 +238,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
     } on TickerCanceled {}
   }
 
+  void addSuggestedActivity(DecorationImage img) {
+    String activityId = activities[data.indexOf(img)].id;
+    Activity toAdd = Database().findActivity(activityId);
+
+    if (toAdd != null) {
+      currentUser.suggestions.add(toAdd);
+    }
+  }
 
 }
